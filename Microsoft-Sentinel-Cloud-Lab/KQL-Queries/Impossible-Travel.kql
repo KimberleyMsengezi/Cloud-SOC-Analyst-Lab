@@ -1,0 +1,6 @@
+// Impossible Travel + Fusion AI Correlation (MITRE T1078)
+SigninLogs
+| where ResultType == 0
+| extend Location = strcat(LocationDetails.countryOrRegion, " - ", LocationDetails.city)
+| order by TimeGenerated
+| project UserPrincipalName, IPAddress, Location, AppDisplayName, RiskLevelDuringSignIn
