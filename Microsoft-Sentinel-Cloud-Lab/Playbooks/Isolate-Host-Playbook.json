@@ -1,0 +1,5 @@
+{
+  "description": "SOAR Playbook - Auto-isolate compromised host via Microsoft Defender",
+  "trigger": "Sentinel Incident",
+  "actions": ["Run playbook → Isolate device in Defender for Endpoint"]
+}
