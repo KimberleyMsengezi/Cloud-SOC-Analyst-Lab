@@ -1,0 +1,7 @@
+// Brute-Force Detection (MITRE T1110.001) 
+SecurityEvent
+| where EventID == 4625
+| summarize FailedAttempts = count() by IpAddress, TargetAccount, Computer
+| where FailedAttempts > 5
+| order by FailedAttempts desc
+| project TimeGenerated, IpAddress, TargetAccount, Computer, FailedAttempts
